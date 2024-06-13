@@ -2,7 +2,7 @@
   <header
     class="bg-[url('/assets/img/sci.jpg')] opacity bg-cover bg-no-repeat bg-center h-screen bg-fixed"
   >
-    <main class="flex justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap">
+    <main class="flex flex-wrap justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap">
       <!-- <div class="items-center justify-center pt-10 text-pretty">
      
       </div> -->
@@ -98,4 +98,8 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import connectDB from "./../utils/db"
+
+connectDB()
+</script>
