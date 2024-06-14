@@ -112,6 +112,7 @@
 
 <script setup>
 import connectDB from "./../utils/db"
+// import newUser from "../server/api/users"
 import axios from "axios"
 
 connectDB()
@@ -123,8 +124,8 @@ const confirmPassword = useState("confirmPassword", () => "")
 
 
 const signUpWithCredential = async() => {
-   await axios.post("../server/api/users").then((res)=> {
-    console.log(res);
+   const signUpUser = await axios.post('/server/api/users.js').then((res)=> {
+    console.log(signUpUser);
    }).catch((err) => {
     console.log(err);
    })
