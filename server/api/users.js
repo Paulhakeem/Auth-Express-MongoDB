@@ -1,6 +1,6 @@
 import Users from "../models/users";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const newUser = await Users.create({
     name: "Paul",
     email: "paulnyamawi18@gmail.com",
