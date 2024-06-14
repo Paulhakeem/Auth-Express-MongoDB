@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-[url('/assets/img/sci.jpg')] opacity bg-cover bg-no-repeat bg-center h-screen bg-fixed"
+    class="bg-[url('/assets/img/sci.jpg')] opacity bg-cover bg-no-repeat bg-center h-auto bg-fixed"
   >
     <main class="flex flex-wrap justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap">
       <!-- <div class="items-center justify-center pt-10 text-pretty">
@@ -33,20 +33,31 @@
 
       <!-- form content -->
       <div
-        class="w-80 h-[25em] bg-black opacity-70 justify-center items-center"
+        class="w-80 h-auto bg-black opacity-70 justify-center items-center"
       >
-        <div class="pt-8">
+        <div class="pt-8 mb-4">
           <h4 class="text-center text-white font-semibold">Login</h4>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form class="" action="">
+            <form @submit.prevent="signUpWithCredential" method="post">
               <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
-                >Username or Email</label
+                >Username</label
               >
               <input
+               v-model="name"
                 class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
                 type="text"
+              />
+                 <label
+                class="font-semibold text-xs text-white"
+                for="usernameField"
+                >Email</label
+              >
+              <input
+               v-model="email"
+                class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                type="email"
               />
               <label
                 class="font-semibold text-xs mt-3 text-white"
@@ -54,6 +65,7 @@
                 >Password</label
               >
               <input
+               v-model="password"
                 class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
                 type="password"
               />
@@ -100,6 +112,23 @@
 
 <script setup>
 import connectDB from "./../utils/db"
+import axios from "axios"
 
 connectDB()
+
+const name = useState("name", () => "")
+const email = useState("email", () => "")
+const password = useState("password", () => "")
+const confirmPassword = useState("confirmPassword", () => "")
+
+
+const signUpWithCredential = async() => {
+   await axios.post("../server/api/users").then((res)=> {
+    console.log(res);
+   }).catch((err) => {
+    console.log(err);
+   })
+ 
+}
+
 </script>

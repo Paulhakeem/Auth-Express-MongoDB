@@ -13,16 +13,16 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail]
   },
-  confirmPassword: {
-    type: String,
-    required: [true, "Please Confirm Your Password"],
-    miniLength: [8, "Password Should be Atleast 8 characters"],
-    select: false
-  },
+  // confirmPassword: {
+  //   type: String,
+  //   required: [true, "Please Confirm Your Password"],
+  //   miniLength: [8, "Password Should be Atleast 8 characters"],
+  //   select: false
+  // },
 
 })
 
-const Users = mongoose.model("Users", userSchema)
+const Users = mongoose.model("users", userSchema)
 
 
 export default Users
