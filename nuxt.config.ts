@@ -9,7 +9,6 @@ export default defineNuxtConfig({
       title: "Authentication with Express And MongoDB",
     },
   },
-
   runtimeConfig: {
     public: {
       API_MONGO_CONN: process.env.API_MONGO_CONN,
