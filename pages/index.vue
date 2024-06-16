@@ -111,9 +111,9 @@
 </template>
 
 <script setup>
-import connectDB from "./../utils/db"
+// import connectDB from "./../utils/db"
 
-connectDB()
+// connectDB()
 
 const name = useState("name", () => "")
 const email = useState("email", () => "")

@@ -10,8 +10,6 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    public: {
-      API_MONGO_CONN: process.env.API_MONGO_CONN,
-    },
+    MONGO_CONN: process.env.MONGO_CONN,
   },
-});
+})
