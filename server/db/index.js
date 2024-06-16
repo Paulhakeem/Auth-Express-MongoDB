@@ -4,7 +4,7 @@ export default async (useNitroApp) => {
   const config = useAppConfig();
 
   mongoose
-    .connect(config.MONGO_CONN)
+    .connect("mongodb+srv://paulnyamawi18:f3Chc7WKbHUlCe9j@authentication.rtglsgh.mongodb.net/")
     .then(() => console.log("mongoDB connected!!"))
     .catch((e) => console.log(e));
 };
