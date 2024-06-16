@@ -1,35 +1,32 @@
 import mongoose from "mongoose";
-import types from "nuxt-server-utils";
-import validator from "validator"
+import validator from "validator";
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please Enter Your Name"]
+    required: [true, "Please Enter Your Name"],
   },
   email: {
     type: String,
     required: [true, "Please Enter Your Email"],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail]
+    validate: [validator.isEmail],
   },
   password: {
     type: String,
     miniLength: [8, "Password Should be Atleast 8 characters"],
     required: [true, "Please Enter Your Password"],
-    select: false
+    select: false,
   },
   confirmPassword: {
     type: String,
     miniLength: [8, "Password Should be Atleast 8 characters"],
     required: [true, "Please Confirm Your Password"],
-    select: false
+    select: false,
   },
+});
 
-})
+const Users = mongoose.model("users", userSchema);
 
-const Users = mongoose.model("users", userSchema)
-
-
-export default Users
+export default Users;

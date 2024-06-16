@@ -1,5 +1,5 @@
 import Users from "../models/usersData";
-const express = require("express");
+import express from "express";
 
 const app = express();
 app.use(express.json());
@@ -14,11 +14,11 @@ exports.createUser = async (req, res, next) => {
   });
   if (!newUser) {
     console.log("No user Available");
-  } 
+  }
   res.status(201).json({
     status: sucess,
     data: {
-        newUser
-    }
-  })
+      newUser,
+    },
+  });
 };

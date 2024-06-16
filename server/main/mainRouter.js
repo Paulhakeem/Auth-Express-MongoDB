@@ -1,6 +1,5 @@
-const express = require("express")
-const route = require("./../routes/usersRouter")
+import express from "express";
+import usersRouter from "./../routes/usersRouter";
 
-const app = express()
-
-app.use("/users", route)
+const app = express();
+app.use("/users", usersRouter);
