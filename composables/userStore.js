@@ -13,6 +13,18 @@ export const userStore = defineStore("user-store", () => {
     }
   };
 
+  //   get specific user
+  const getUser = async (id, name, email) => {
+    try {
+      await $fetch(`/api/users/${id}`, {
+        method: "GET",
+        body: { name, email },
+      });
+    } catch (error) {
+      useNuxtApp().$toast.error(error.message);
+    }
+  };
+
   //   create user
   const createUser = async (name, email, password) => {
     try {
@@ -25,8 +37,40 @@ export const userStore = defineStore("user-store", () => {
     }
   };
 
+  //   update user
+  const updateUser = async (id, name) => {
+    await $fetch(`/api/users/${id}`, {
+      method: "PUT",
+      body: { name },
+    })
+      .then(async () => {
+        await getAllUsers();
+        useNuxtApp().$toast.success("User Updated successfully!!");
+      })
+      .catch((error) => {
+        useNuxtApp().$toast.error(error.data.message);
+      });
+  };
+
+  //   delete user
+  const deleteUser = async (id) => {
+    await $fetch(`/api/users/${id}`, {
+      method: "DELETE",
+    })
+      .then(async () => {
+        await getAllUsers();
+        useNuxtApp().$toast.success("User Deleted successfully!!");
+      })
+      .catch((error) => {
+        useNuxtApp().$toast.error(error.data.message);
+      });
+  };
+
   return {
     getAllUsers,
+    getUser,
     createUser,
+    updateUser,
+    deleteUser,
   };
 });
