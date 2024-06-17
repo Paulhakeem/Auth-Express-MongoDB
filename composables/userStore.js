@@ -1,13 +1,14 @@
 import { defineStore } from "pinia";
 
 export const userStore = defineStore("user-store", () => {
-  const user = useState("user", () => []);
+  const users = useState("user", () => {});
 
   //  get all users
   const getAllUsers = async () => {
     try {
       const data = await $fetch("/api/users");
-      user.value = data;
+      users.value = data;
+      return data
     } catch (error) {
       useNuxtApp().$toast.error(error.message);
     }
@@ -27,14 +28,16 @@ export const userStore = defineStore("user-store", () => {
 
   //   create user
   const createUser = async (name, email, password) => {
-    try {
       await $fetch("/api/users/create", {
         method: "POST",
         body: { name, email, password },
-      });
-    } catch (error) {
-      useNuxtApp().$toast.error(error.data.message);
-    }
+      }).then(async()=> {
+        await getAllUsers()
+        useNuxtApp().$toast.success("User created successfully!!");
+      }).catch((error) => {
+        useNuxtApp().$toast.success(error.data.message);
+      })
+   
   };
 
   //   update user

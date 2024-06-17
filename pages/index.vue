@@ -3,9 +3,6 @@
     class="bg-[url('/assets/img/sci.jpg')] opacity bg-cover bg-no-repeat bg-center h-auto bg-fixed"
   >
     <main class="flex flex-wrap justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap">
-      <!-- <div class="items-center justify-center pt-10 text-pretty">
-     
-      </div> -->
       <div class="relative flex h-80 w-2/5 items-center justify-center">
         <div class="text-pretty">
           <h2 class="text-2xl text-white font-semibold">Track Your Users</h2>
