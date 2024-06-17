@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const userStore = defineStore("user-store", () => {
+export default function(){
   const users = useState("user", () => {});
 
   //  get all users
@@ -35,7 +35,7 @@ export const userStore = defineStore("user-store", () => {
         await getAllUsers()
         useNuxtApp().$toast.success("User created successfully!!");
       }).catch((error) => {
-        useNuxtApp().$toast.success(error.data.message);
+        useNuxtApp().$toast.error(error.data.message);
       })
    
   };
@@ -76,4 +76,4 @@ export const userStore = defineStore("user-store", () => {
     updateUser,
     deleteUser,
   };
-});
+};
