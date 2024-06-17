@@ -13,7 +13,7 @@
               have specialist for cargo handling terminals in all major airpots.
             </p>
           </div>
-          <div class="flex gap-6 pt-8">
+          <div class="flex flex-wrap gap-6 pt-8 mb-4">
             <input
               class="flex items-center h-9 px-4 w-72 bg-gray-200 rounded focus:outline-none focus:ring-2"
               type="text"
