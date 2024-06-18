@@ -116,6 +116,7 @@ const confirmPassword = useState("confirmPassword", () => "")
 const {createUser} = userStore()
 const signUpWithCredential = async() => {
  await createUser(name.value, email.value, password.value).then(() => {
+  
   name.value = ""
   email.value = ""
   password.value = ""
