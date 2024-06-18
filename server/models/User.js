@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator"
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -24,6 +25,11 @@ const userSchema = new mongoose.Schema({
     //   require: [true, "Please confirm your password"],
     //   select: false,
     // },
+})
+
+userSchema.pre('save', async function(next) {
+  this.password = await bcrypt.hash(this.password, 12)
+  next()
 })
 
 const User = mongoose.model("User", userSchema);

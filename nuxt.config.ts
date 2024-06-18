@@ -3,11 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon"],
-  // tailwind css path
-  // tailwindcss: {
-  //   cssPath: "~/assets/css/main.css",
-  // },
-
+ 
   // header
   app: {
     head: {
