@@ -20,11 +20,6 @@ const userSchema = new mongoose.Schema({
       miniLength: [8, "Password shuld be of 8 characters"],
       select: false,
     },
-    // confirmPassword: {
-    //   type: String,
-    //   require: [true, "Please confirm your password"],
-    //   select: false,
-    // },
 })
 
 userSchema.pre('save', async function(next) {

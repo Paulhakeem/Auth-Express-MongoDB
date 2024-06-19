@@ -1,7 +1,5 @@
-import { defineStore } from "pinia";
-import User from "~/server/models/User";
 
-export default function(){
+export default function () {
   const users = useState("user", () => {});
 
   //  get all users
@@ -9,7 +7,7 @@ export default function(){
     try {
       const data = await $fetch("/api/users");
       users.value = data;
-      return data
+      return data;
     } catch (error) {
       useNuxtApp().$toast.error(error.message);
     }
@@ -29,18 +27,20 @@ export default function(){
 
   //   create user
   const createUser = async (name, email, password) => {
-      await $fetch("/api/users/create", {
-        method: "POST",
-        body: { name, email, password },
-      }).then(async()=> {
-        await getAllUsers()
+    await $fetch("/api/users/create", {
+      method: "POST",
+      body: { name, email, password },
+    })
+      .then(async () => {
+        await getAllUsers();
         useNuxtApp().$toast.success("User created successfully!!");
-      }).catch((error) => {
-        useNuxtApp().$toast.error(error.data.message);
       })
-   
+      .catch((error) => {
+        useNuxtApp().$toast.error(error.data.message);
+      });
   };
 
+  
   //   update user
   const updateUser = async (id, name) => {
     await $fetch(`/api/users/${id}`, {
@@ -70,24 +70,21 @@ export default function(){
       });
   };
 
-
-//   LOGIN USER
-const loginUser = async(req, email, password) => {
-    const {email, password} = req.body
-    if (!email || !password) {
-        return useNuxtApp().$toast.error(error.data.message);
+  //   LOGIN USER
+  const loginUser = async(req, email, password)=> {
+    if(!email || !password){
+        return useNuxtApp().$toast.error("Something happens");
     }
 
-    const userInfo = User.findOne({email}).select("+password")
-    const matchPassword = await comparePassword(password, userInfo)
+    const userInfo = await users.findOne({email}).select("+password")
+    console.log(userInfo);
+    const matchPassword = await userInfo.comparePassword(password, userInfo.password)
 
     if(!userInfo || !matchPassword){
-        return  useNuxtApp().$toast.error("Something went wrong. Please try again!")
-    }else{
-        return  useNuxtApp().$toast.success("User LoggedIn!")
+        return useNuxtApp().$toast.error("Something went wrong. Please try again!");
     }
 
-}
+  }
 
   return {
     getAllUsers,
@@ -97,4 +94,4 @@ const loginUser = async(req, email, password) => {
     deleteUser,
     loginUser
   };
-};
+}
