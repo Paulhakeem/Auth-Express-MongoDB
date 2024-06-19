@@ -111,6 +111,7 @@ const loginWithCredential = async () => {
   await loginUser(email.value, password.value).then(() => {
     email.value = "";
     password.value = "";
+    return navigateTo("/darshboard")
   });
 };
 </script>
