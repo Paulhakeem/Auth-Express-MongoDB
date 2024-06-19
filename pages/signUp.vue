@@ -2,9 +2,7 @@
   <header
     class="bg-[url('/assets/img/sci.jpg')] opacity bg-cover bg-no-repeat bg-center h-auto bg-fixed"
   >
-    <main
-      class="flex flex-wrap justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap"
-    >
+    <main class="flex flex-wrap justify-around pt-20 pb-20 sm:flex-wrap md:flex-wrap">
       <div class="relative flex h-80 w-2/5 items-center justify-center">
         <div class="text-pretty">
           <h2 class="text-2xl text-white font-semibold">Track Your Users</h2>
@@ -31,18 +29,30 @@
       </div>
 
       <!-- form content -->
-      <div class="w-80 h-auto bg-black opacity-70 justify-center items-center">
+      <div
+        class="w-80 h-auto bg-black opacity-70 justify-center items-center"
+      >
         <div class="pt-8 mb-4">
           <h4 class="text-center text-white font-semibold">Login</h4>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form @submit.prevent="loginWithCredential" method="post">
+            <form @submit.prevent="signUpWithCredential" method="post">
               <label
+                class="font-semibold text-xs text-white"
+                for="usernameField"
+                >Username</label
+              >
+              <input
+               v-model="name"
+                class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
+                type="text"
+              />
+                 <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
                 >Email</label
               >
               <input
-                v-model="email"
+               v-model="email"
                 class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
                 type="email"
               />
@@ -52,7 +62,7 @@
                 >Password</label
               >
               <input
-                v-model="password"
+               v-model="password"
                 class="flex items-center h-9 px-4 w-72 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2"
                 type="password"
               />
@@ -72,9 +82,7 @@
                 </div>
 
                 <span>
-                  <p class="hover:text-blue-800 cursor-pointer">
-                    Forget Your Password
-                  </p>
+                  <p class="hover:text-blue-800 cursor-pointer">Forget Your Password</p>
                 </span>
               </div>
 
@@ -82,15 +90,16 @@
                 <button
                   class="h-10 px-6 w-64 bg-blue-800 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-800"
                 >
-                  Login
+                 SignUp
                 </button>
               </div>
               <div class="flex justify-center text-xs text-white pt-4">
                 <a>New user</a>
                 <span class="mx-2 text-gray-300">/</span>
-                <nuxt-link to="/signUp">
-                  <a class="font-semibold hover:text-blue-800">Sign Up</a>
+                <nuxt-link to="/">
+                <a class="font-semibold hover:text-blue-800">Login</a>
                 </nuxt-link>
+                
               </div>
             </form>
             <!-- Component End  -->
@@ -102,14 +111,19 @@
 </template>
 
 <script setup>
-const email = useState("email", () => "");
-const password = useState("password", () => "");
+const name = useState("name", () => "")
+const email = useState("email", () => "")
+const password = useState("password", () => "")
+const confirmPassword = useState("confirmPassword", () => "")
 
-const { createUser } = userStore();
-const loginWithCredential = async () => {
-  await loginUser(email.value, password.value).then(() => {
-    email.value = "";
-    password.value = "";
-  });
-};
+const {createUser} = userStore()
+const signUpWithCredential = async() => {
+ await createUser(name.value, email.value, password.value).then(() => {
+  
+  name.value = ""
+  email.value = ""
+  password.value = ""
+ })
+}
+
 </script>

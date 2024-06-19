@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import User from "~/server/models/User";
 
 export default function(){
   const users = useState("user", () => {});
@@ -69,11 +70,31 @@ export default function(){
       });
   };
 
+
+//   LOGIN USER
+const loginUser = async(req, email, password) => {
+    const {email, password} = req.body
+    if (!email || !password) {
+        return useNuxtApp().$toast.error(error.data.message);
+    }
+
+    const userInfo = User.findOne({email}).select("+password")
+    const matchPassword = await comparePassword(password, userInfo)
+
+    if(!userInfo || !matchPassword){
+        return  useNuxtApp().$toast.error("Something went wrong. Please try again!")
+    }else{
+        return  useNuxtApp().$toast.success("User LoggedIn!")
+    }
+
+}
+
   return {
     getAllUsers,
     getUser,
     createUser,
     updateUser,
     deleteUser,
+    loginUser
   };
 };
