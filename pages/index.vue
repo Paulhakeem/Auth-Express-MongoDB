@@ -89,9 +89,8 @@
                 <a>New user</a>
                 <span class="mx-2 text-gray-300">/</span>
                 <nuxt-link to="/signUp">
-                <a class="font-semibold hover:text-blue-800">Sign Up</a>
+                  <a class="font-semibold hover:text-blue-800">Sign Up</a>
                 </nuxt-link>
-                  
               </div>
             </form>
             <!-- Component End  -->
@@ -108,10 +107,11 @@ const password = useState("password", () => "");
 
 const { loginUser } = userStore();
 const loginWithCredential = async () => {
-  await loginUser(email.value, password.value).then(() => {
+  const user = await loginUser(email.value, password.value);
+  if (user) {
     email.value = "";
     password.value = "";
-    return navigateTo("/darshboard")
-  });
+    return navigateTo("/darshboard");
+  }
 };
 </script>

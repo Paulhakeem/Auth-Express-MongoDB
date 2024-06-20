@@ -33,7 +33,7 @@
       <!-- form content -->
       <div class="w-80 h-auto bg-black opacity-70 justify-center items-center">
         <div class="pt-8 mb-4">
-          <h4 class="text-center text-white font-semibold">Login</h4>
+          <h4 class="text-center text-white font-semibold">SignUp</h4>
           <div class="flex flex-col justify-center items-center pt-6">
             <form @submit.prevent="signUpWithCredential" method="post">
               <label
@@ -119,12 +119,15 @@ const confirmPassword = useState("confirmPassword", () => "");
 
 const { createUser } = userStore();
 const signUpWithCredential = async () => {
-  const user = await createUser(name.value, email.value, password.value);
-  if (user) {
-    name.value = "";
-    email.value = "";
-    password.value = "";
-    return navigateTo("/darshboard");
-  }
+  await createUser(name.value, email.value, password.value)
+    .then((result) => {
+      name.value = "";
+      email.value = "";
+      password.value = "";
+      return navigateTo("/darshboard");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 </script>
