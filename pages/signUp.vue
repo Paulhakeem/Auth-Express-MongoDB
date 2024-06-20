@@ -8,7 +8,7 @@
       <div class="relative flex h-80 w-2/5 items-center justify-center">
         <div class="text-pretty">
           <h2 class="text-2xl text-white font-semibold">Track Your Users</h2>
-          <div class="text-white pt-8 text-md">
+          <div class="text-white pt-8 text-md text-pretty">
             <p>
               We provide services for mojar cargo distributors, corporates
               shippers and individuals, includes transportations of animals. We
@@ -22,7 +22,7 @@
               placeholder="Enter user name"
             />
             <button
-              class="h-10 w-32 bg-blue-800 rounded font-semibold text-sm text-blue-100 hover:bg-blue-800"
+              class="h-10 w-32 bg-[#07d884] rounded font-semibold text-sm text-blue-100"
             >
               Track
             </button>
@@ -82,7 +82,7 @@
                 </div>
 
                 <span>
-                  <p class="hover:text-blue-800 cursor-pointer">
+                  <p class="hover:text-[#07d884] cursor-pointer">
                     Forget Your Password
                   </p>
                 </span>
@@ -90,7 +90,7 @@
 
               <div class="text-center">
                 <button
-                  class="h-10 px-6 w-64 bg-blue-800 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-800"
+                  class="h-10 px-6 w-64 bg-[#07d884] mt-8 rounded font-semibold text-sm text-blue-100"
                 >
                   SignUp
                 </button>
@@ -99,7 +99,7 @@
                 <a>New user</a>
                 <span class="mx-2 text-gray-300">/</span>
                 <nuxt-link to="/">
-                  <a class="font-semibold hover:text-blue-800">Login</a>
+                  <a class="font-semibold hover:text-[#07d884]">Login</a>
                 </nuxt-link>
               </div>
             </form>
