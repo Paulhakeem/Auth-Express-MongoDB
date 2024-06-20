@@ -34,6 +34,7 @@ export default function () {
       .then(async () => {
         await getAllUsers();
         useNuxtApp().$toast.success("User created successfully!!");
+        return navigateTo("/darshboard");
       })
       .catch((error) => {
         useNuxtApp().$toast.error(error.data.message);

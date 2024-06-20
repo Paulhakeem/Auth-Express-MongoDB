@@ -119,15 +119,14 @@ const confirmPassword = useState("confirmPassword", () => "");
 
 const { createUser } = userStore();
 const signUpWithCredential = async () => {
-  await createUser(name.value, email.value, password.value)
-    .then((result) => {
-      name.value = "";
-      email.value = "";
-      password.value = "";
-      return navigateTo("/darshboard");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const newUser = await createUser(name.value, email.value, password.value);
+
+  if (!newUser) {
+    console.log("No User Available");
+  }
+  name.value = "";
+  email.value = "";
+  password.value = "";
+
 };
 </script>
