@@ -13,9 +13,13 @@
     </div>
 
     <div class="mt-8 text-center justify-center content-center">
-      <p class="text-gray-200">Follows Us On The Following Plantforms</p>
-      <div class="flex text-center">
+      <p class="text-gray-200 text-sm">Follows Us On The Following Platforms</p>
+      <div class="flex justify-center gap-4 pt-3">
         <!-- <font-awesome :icon="['far', 'facebook']" /> -->
+        <img src="../assets/img/facebook.png" alt="facebook" class="w-6 cursor-pointer">
+        <img src="../assets/img/twitter.png" alt="facebook" class="w-6 cursor-pointer">
+        <img src="../assets/img/github.png" alt="facebook" class="w-6 cursor-pointer">
+        <img src="../assets/img/linkedin.png" alt="facebook" class="w-6 cursor-pointer">
       </div>
     </div>
   </div>
