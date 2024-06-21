@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon", '@vesp/nuxt-fontawesome'],
  
   // header
   app: {
@@ -19,4 +19,11 @@ export default defineNuxtConfig({
   nitro: {
     plugins: ["@/server/db/index.js"],
   },
+
+  // fontawesome: {
+  //   icons: {
+  //     solid: ['facebook', 'twitter', 'github', 'linkedin'],
+  //     regular: ['user']
+  //   }
+  // }
 });

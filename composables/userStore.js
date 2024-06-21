@@ -72,7 +72,7 @@ export default function () {
   };
 
   //   LOGIN USER
-  const loginUser = async(req, email, password)=> {
+  const loginUser = async(email, password)=> {
     if(!email || !password){
         return useNuxtApp().$toast.error("Something happens");
     }
@@ -84,7 +84,7 @@ export default function () {
     if(!userInfo || !matchPassword){
         return useNuxtApp().$toast.error("Something went wrong. Please try again!");
     }
-
+    return navigateTo("/darshboard");
   }
 
   return {

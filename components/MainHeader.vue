@@ -91,8 +91,8 @@
               >
                 Users
                 <span
-                  class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600"
-                  >4</span
+                  class="py-0.5 px-2 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600"
+                  >{{users.length}}</span
                 >
               </a>
 
@@ -122,6 +122,16 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+
+const {getAllUsers} = userStore()
+
+const users = useState("users", () => "")
+
+onMounted(async() => {
+  const allUsers = await getAllUsers()
+  users.value = allUsers
+})
+</script>
 
 <style lang="scss" scoped></style>
