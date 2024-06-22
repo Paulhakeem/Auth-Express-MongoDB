@@ -1,4 +1,3 @@
-
 export default function () {
   const users = useState("user", () => {});
 
@@ -41,7 +40,6 @@ export default function () {
       });
   };
 
-  
   //   update user
   const updateUser = async (id, name) => {
     await $fetch(`/api/users/${id}`, {
@@ -72,20 +70,23 @@ export default function () {
   };
 
   //   LOGIN USER
-  const loginUser = async(email, password)=> {
-    if(!email || !password){
-        return useNuxtApp().$toast.error("Something happens");
-    }
-
-    const userInfo = await users.findOne({email}).select("+password")
-    console.log(userInfo);
-    const matchPassword = await userInfo.comparePassword(password, userInfo.password)
-
-    if(!userInfo || !matchPassword){
-        return useNuxtApp().$toast.error("Something went wrong. Please try again!");
-    }
-    return navigateTo("/darshboard");
-  }
+  const loginUser = async (email, password) => {
+   await $fetch("/api/users/login", {
+      method: "POST",
+      body: {
+        email,
+        password,
+      },
+    })
+      .then(async () => {
+        await getAllUsers();
+        useNuxtApp().$toast.success("Login Successfully");
+        // return navigateTo("/darshboard");
+      })
+      .catch((error) => {
+        useNuxtApp().$toast.error(error.message);
+      });
+  };
 
   return {
     getAllUsers,
@@ -93,6 +94,6 @@ export default function () {
     createUser,
     updateUser,
     deleteUser,
-    loginUser
+    loginUser,
   };
 }
