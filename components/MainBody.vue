@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-md m-auto mt-14 justify-center text-center bg-[#2d334c] rounded-md p-4"
+    class="max-w-md m-auto mt-4 justify-center text-center bg-[#2d334c] rounded-md p-4"
   >
     <h1 class="text-2xl text-[#07d884] font-semibold">Welcome Paul🤗</h1>
 
