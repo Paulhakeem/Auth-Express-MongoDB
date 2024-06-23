@@ -4,8 +4,8 @@
     <!-- users available -->
     <users-online />
     <!--  -->
-    <div class="flex flex-wrap mt-14 h-44 bg-gray-200 justify-center text-center m-auto mx-8 rounded-md">
-
+    <div class="flex flex-wrap mt-14 h-52 bg-gray-200 justify-center text-center m-auto mx-8 rounded-md">
+      <pie-chart/>
     </div>
   </div>
 </template>
