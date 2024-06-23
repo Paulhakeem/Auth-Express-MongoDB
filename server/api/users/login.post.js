@@ -1,39 +1,35 @@
 import User from "~/server/models/User";
 import jwt from "jsonwebtoken";
 
-export default defineEventHandler((event) => {
-    const login = async (req, res) => {
-      console.log("hello");
-      const { email, password } = req.body;
+export default defineEventHandler(async (event) => {
+    const { email, password } = await useBody(event);
 
-      if(!email || !password) {
-       console.log("somethig went wrong");
-      }
-
-      const userlogin = await User.findOne({ email });
-      const matchPassword = await userlogin.comparePassword(
-        password,
-        userlogin.password
+    if (!email || !password) {
+      useNuxtApp().$toast.error(
+        "Email or Password is incorrect. Please try again!"
       );
-      // check if use is exist
-      if (!userlogin || !matchPassword) {
-        useNuxtApp().$toast.error(
-          "Email or Password is incorrect. Please try again!"
-        );
-      }
-      // token genereted
-      const loginToken = jwt.sign(
-        { id: userlogin._id },
-        process.env.SECRET_STR,
-        {
-          expiresIn: process.env.EXP_DATE,
-        }
+    }
+
+    const userLogin = await User.findOne({ email });
+    const matchPassword = await userLogin.comparePassword(
+      password,
+      userLogin.password
+    );
+    // check if use is exist
+    if (!userLogin || !matchPassword) {
+      useNuxtApp().$toast.error(
+        "Email or Password is incorrect. Please try again!"
       );
-
-      return loginToken
-    };
-
-  return {
-    login
-  }
+    }
+    // token genereted
+    const loginToken = jwt.sign({ id: userlogin._id }, process.env.SECRET_STR, {
+      expiresIn: process.env.EXP_DATE,
+    });
+    console.log("hello");
+    return {
+      loginToken,
+      userLogin
+    }
+   
+    // return loginToken;
 });

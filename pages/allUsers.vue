@@ -4,7 +4,7 @@
     <!-- users available -->
     <users-online />
     <!--  -->
-    <div class="mt-14 h-10 bg-gray-200 justify-center w-96">
+    <div class="flex flex-wrap mt-14 h-44 bg-gray-200 justify-center text-center m-auto mx-8 rounded-md">
 
     </div>
   </div>
