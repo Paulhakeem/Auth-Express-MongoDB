@@ -33,6 +33,10 @@ userSchema.methods.comparePassword = async function(pwd, pwdDB){
 return await bcrypt.compare(pwd, pwdDB)
 }
 
+
+// GENERATE USER TOKEN USING JWT
+userSchema.methods.generateToken = async function(){}
+
 const User = mongoose.model("User", userSchema);
 
 export default User;

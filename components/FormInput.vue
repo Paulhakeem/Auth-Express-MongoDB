@@ -25,30 +25,15 @@
         <input
           type="text"
           id="simple-search"
-          class="bg-gray-50 border-b border-b-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5"
+          class="text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5 outline-none"
           placeholder="Search user name..."
           required
         />
       </div>
       <button
         type="submit"
-        class="flex gap-2 p-2.5 w-32 ms-2 text-sm font-medium text-white bg-[#07d884] rounded-lg "
+        class="text-center p-2.5 w-32 ms-2 text-sm font-medium text-white bg-[#07d884] rounded-lg"
       >
-        <svg
-          class="w-4 h-4"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 20 20"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-          />
-        </svg>
         <span>Search</span>
       </button>
     </form>
@@ -56,5 +41,3 @@
 </template>
 
 <script setup></script>
-
-<style lang="scss" scoped></style>

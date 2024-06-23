@@ -71,7 +71,7 @@ export default function () {
 
   //   LOGIN USER
   const loginUser = async (email, password) => {
-   await $fetch("/api/users/login", {
+    await $fetch("/api/users/login", {
       method: "POST",
       body: {
         email,
