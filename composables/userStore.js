@@ -71,21 +71,18 @@ export default function () {
 
   //   LOGIN USER
   const loginUser = async (email, password) => {
-    await $fetch("/api/users/login", {
+    const user = await $fetch("/api/users/login", {
       method: "POST",
       body: {
         email,
         password,
       },
     })
-      .then(async () => {
-        await getAllUsers();
-        useNuxtApp().$toast.success("Login Successfully");
-        // return navigateTo("/darshboard");
-      })
-      .catch((error) => {
-        useNuxtApp().$toast.error(error.message);
-      });
+
+    if(!user){
+      console.log("error");
+    }
+    console.log("login");
   };
 
   return {

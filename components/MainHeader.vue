@@ -85,16 +85,18 @@
                 Perfomance
               </a>
 
-              <a
-                class="font-medium text-gray-800 hover:text-gray-600 py-3 md:px-3 md:py-6 dark:text-neutral-200 dark:hover:text-neutral-500"
-                href="#"
-              >
-                Users
-                <span
-                  class="py-0.5 px-2 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600"
-                  >{{users.length}}</span
+              <nuxt-link to="/AllUsers">
+                <a
+                  class="font-medium text-gray-800 hover:text-gray-600 py-3 md:px-3 md:py-6 dark:text-neutral-200 dark:hover:text-neutral-500"
+                  href="#"
                 >
-              </a>
+                  Users
+                  <span
+                    class="py-0.5 px-2 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600"
+                    >{{ users.length }}</span
+                  >
+                </a>
+              </nuxt-link>
 
               <div class="pt-3 md:pt-0">
                 <a
@@ -123,15 +125,14 @@
 </template>
 
 <script setup>
+const { getAllUsers } = userStore();
 
-const {getAllUsers} = userStore()
+const users = useState("users", () => "");
 
-const users = useState("users", () => "")
-
-onMounted(async() => {
-  const allUsers = await getAllUsers()
-  users.value = allUsers
-})
+onMounted(async () => {
+  const allUsers = await getAllUsers();
+  users.value = allUsers;
+});
 </script>
 
 <style lang="scss" scoped></style>
