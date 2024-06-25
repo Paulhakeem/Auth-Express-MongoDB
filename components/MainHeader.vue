@@ -85,7 +85,7 @@
                 Perfomance
               </a>
 
-              <nuxt-link to="/AllUsers">
+              <nuxt-link to="/users">
                 <a
                   class="font-medium text-gray-800 hover:text-gray-600 py-3 md:px-3 md:py-6 dark:text-neutral-200 dark:hover:text-neutral-500"
                   href="#"
