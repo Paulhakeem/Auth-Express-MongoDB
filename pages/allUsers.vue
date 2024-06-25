@@ -56,8 +56,6 @@
       >
         <pie-chart />
       </div>
-
-      <main-footer/>
     </div>
   </div>
 </template>
