@@ -1,6 +1,5 @@
 export default function () {
   const users = useState("user", () => {});
-
   //  get all users
   const getAllUsers = async () => {
     try {
@@ -77,9 +76,9 @@ export default function () {
         email,
         password,
       },
-    })
+    });
 
-    if(!user){
+    if (!user) {
       console.log("error");
     }
     console.log("login");

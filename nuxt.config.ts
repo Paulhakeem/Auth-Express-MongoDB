@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     "@vesp/nuxt-fontawesome",
   ],
 
+  css: ['~/assets/css/main.css'],
+
   // header
   app: {
     head: {
