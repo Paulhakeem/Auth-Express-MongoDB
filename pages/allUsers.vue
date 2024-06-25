@@ -1,5 +1,5 @@
 <template>
-  <div id="userDetails" class="bg-[#090c28] md:h-screen lg:h-screen">
+  <div class="bg-[] md:h-screen lg:h-screen">
     <div class="p-4 h-14 bg-[#07d884]">
       <!-- component -->
       <div class="flex justify-between">
@@ -52,7 +52,7 @@
       <users-online />
       <!--  -->
       <div
-        class="flex flex-wrap mt-14 h-52 bg-gray-200 justify-center text-center m-auto mx-8 rounded-md sm:h-screen md:h-96 lg:h-52"
+        class="flex flex-wrap mt-14 h-52 bg-gray-200 justify-center text-center m-auto mx-8 my-6 rounded-md sm:h-screen md:h-96 lg:h-52"
       >
         <pie-chart />
       </div>
