@@ -29,8 +29,8 @@
 
 
     <!--  -->
-    <div class="mx-4 pt-6">
-      <div class="flex flex-wrap gap-10 justify-evenly items-center">
+    <div class="pt-6">
+      <div class="flex flex-wrap gap-4 justify-center">
         <div
           v-for="user in users"
           :key="user._id"

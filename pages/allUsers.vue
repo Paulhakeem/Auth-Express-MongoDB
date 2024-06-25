@@ -6,7 +6,7 @@
         <div class="text-[#090c28] font-semibold">P.R.E</div>
         <div class="flex gap-6">
           <!-- not -->
-          <div class="relative">
+          <div class="relative cursor-pointer">
             <div class="absolute left-0 top-0 bg-red-500 rounded-full mr-4">
               <span class="text-sm text-white p-2">4</span>
             </div>
@@ -25,7 +25,7 @@
             </div>
           </div>
           <!-- ms -->
-          <div class="relative">
+          <div class="relative cursor-pointer">
             <div
               class="absolute left-0 top-0 bg-red-500 rounded-full mr-4 text-center items-center"
             >
@@ -56,6 +56,8 @@
       >
         <pie-chart />
       </div>
+
+      <main-footer/>
     </div>
   </div>
 </template>
