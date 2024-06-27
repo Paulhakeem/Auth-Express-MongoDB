@@ -2,7 +2,7 @@ import User from "~/server/models/User";
 import jwt from "jsonwebtoken";
 
 export default defineEventHandler(async (event) => {
-    const { email, password } = await useBody(event);
+    const { email, password } = await readBody(event);
 
     if (!email || !password) {
       useNuxtApp().$toast.error(

@@ -80,12 +80,6 @@
                   />
                   <p>Remember Me</p>
                 </div>
-
-                <span>
-                  <p class="hover:text-[#07d884] cursor-pointer">
-                    Forget Your Password
-                  </p>
-                </span>
               </div>
 
               <div class="text-center">

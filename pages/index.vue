@@ -71,11 +71,13 @@
                   <p>Remember Me</p>
                 </div>
 
-                <span>
+                <nuxt-link to="/forgetpassword">
+                  <span>
                   <p class="hover:text-[#07d884] cursor-pointer">
                     Forget Your Password
                   </p>
                 </span>
+                </nuxt-link>
               </div>
 
               <div class="text-center">
