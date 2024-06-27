@@ -17,7 +17,7 @@
             </p>
           </div>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form @submit.prevent="" method="post">
+            <form @submit.prevent="forgetPass" method="post">
               <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
@@ -51,4 +51,13 @@
 
 <script setup>
 const email = useState("email", () => "");
+
+const {resetPassword} = forgetPassword()
+
+const forgetPass = async() => {
+  const user = resetPassword(email.value)
+  if(user){
+    console.log("hello");
+  }
+}
 </script>

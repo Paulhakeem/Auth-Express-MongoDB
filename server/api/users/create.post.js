@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
     const token = jwt.sign({ id: newUser._id }, process.env.SECRET_STR, {
       expiresIn: process.env.EXP_DATE,
     });
+    await token.save()
     return {
       token,
       message: "User Created!!",

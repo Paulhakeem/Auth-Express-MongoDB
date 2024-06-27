@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
     miniLength: [8, "Password shuld be of 8 characters"],
     select: false,
   },
+  token: String,
   passwordResetToken: String,
   passwordResetTokenExp: Date,
 });
@@ -47,7 +48,7 @@ userSchema.methods.getToken = async function () {
 
   console.log(resetCode, this.passwordResetToken);
 
-  return resetCode
+  return resetCode;
 };
 
 const User = mongoose.model("User", userSchema);
