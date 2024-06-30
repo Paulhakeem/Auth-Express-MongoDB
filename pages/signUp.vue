@@ -35,7 +35,7 @@
         <div class="pt-8 mb-4">
           <h4 class="text-center text-white font-semibold">SignUp</h4>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form @submit.prevent="signUpWithCredential" method="post">
+            <form @submit.prevent="" method="post">
               <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
@@ -110,17 +110,4 @@ const name = useState("name", () => "");
 const email = useState("email", () => "");
 const password = useState("password", () => "");
 const confirmPassword = useState("confirmPassword", () => "");
-
-const { createUser } = userStore();
-const signUpWithCredential = async () => {
-  const newUser = await createUser(name.value, email.value, password.value);
-
-  if (!newUser) {
-    console.log("No User Available");
-  }
-  name.value = "";
-  email.value = "";
-  password.value = "";
-
-};
 </script>

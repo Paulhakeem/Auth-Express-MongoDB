@@ -40,14 +40,14 @@
               class="absolute text-2xl text-[#07d884]"
               x-text="`${percent}%`"
             >
-              {{users.length * 2}}%
+              80%
             </span>
           </div>
           <p class="ml-10 font-medium text-gray-600 sm:text-xl">Performance</p>
 
           <span
             class="ml-auto text-xl font-medium text-[#07d884] hidden sm:block"
-            >+{{users.length + 10}}%</span
+            >+20%</span
           >
         </div>
 
@@ -100,11 +100,4 @@
   </div>
 </template>
 
-<script setup>
-const users = useState("users", () => []);
-const { getAllUsers } = userStore();
-onMounted(async () => {
-  const data = await getAllUsers();
-  users.value = data
-});
-</script>
+<script setup></script>

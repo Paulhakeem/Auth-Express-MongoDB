@@ -35,7 +35,7 @@
         <div class="pt-8 mb-4">
           <h4 class="text-center text-white font-semibold">Login</h4>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form @submit.prevent="loginWithCredential" method="post">
+            <form @submit.prevent="" method="post">
               <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
@@ -107,12 +107,4 @@
 const email = useState("email", () => "");
 const password = useState("password", () => "");
 
-const { loginUser } = userStore();
-const loginWithCredential = async () => {
-  const user = await loginUser(email.value, password.value);
-  if (user) {
-    email.value = "";
-    password.value = "";
-  }
-};
 </script>
