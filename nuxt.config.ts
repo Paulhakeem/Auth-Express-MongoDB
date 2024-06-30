@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     "@vesp/nuxt-fontawesome",
   ],
 
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
 
   // header
   app: {
@@ -19,14 +19,5 @@ export default defineNuxtConfig({
   },
 
   // register nitro plugin
-  nitro: {
-    plugins: ["@/server/db/index.js"],
-  },
-
-  // fontawesome: {
-  //   icons: {
-  //     solid: ['facebook', 'twitter', 'github', 'linkedin'],
-  //     regular: ['user']
-  //   }
-  // }
+  nitro: {},
 });

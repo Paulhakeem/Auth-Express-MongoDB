@@ -106,5 +106,11 @@
 <script setup>
 const email = useState("email", () => "");
 const password = useState("password", () => "");
-
+const message = ref("")
+onMounted(async() => {
+  const response = await $fetch('http://localhost:5000/api/hello')
+  const data = await response.json();
+   message.value = data.message;
+  console.log(data);
+})
 </script>
