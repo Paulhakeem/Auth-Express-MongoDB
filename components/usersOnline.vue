@@ -12,8 +12,8 @@
 
     <!--  -->
     <div class="pt-6">
-      <div class="flex flex-wrap gap-4 justify-center">
-        <div class="flex gap-2 bg-gray-200 p-5 w-56 h-20 rounded-md">
+      <div  class="flex flex-wrap gap-4 justify-center">
+        <div v-for="user in allUsers" :key="user.id" class="flex gap-2 bg-gray-200 p-5 w-56 h-20 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="46"
@@ -31,8 +31,8 @@
             </g>
           </svg>
           <div>
-            <h4 class="text-[#07d884] text-md font-semibold">Paul Hakeem</h4>
-            <p class="text-gray-600 text-sm">Paulhakeem@gmail.com</p>
+            <h4 class="text-[#07d884] text-md font-semibold">{{user.name}}</h4>
+            <p class="text-gray-600 text-sm">{{user.email}}</p>
           </div>
         </div>
       </div>
@@ -40,6 +40,20 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const allUsers = useState("users", () => {})
+onMounted(async () => {
+  try {
+    const data = await $fetch("/api/signUp");
+    const users = await data.res.data.users
+    console.log(users);
+    if (users) {
+      allUsers.value = users
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+</script>
 
 <style lang="scss" scoped></style>

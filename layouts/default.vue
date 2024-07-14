@@ -3,7 +3,7 @@
     <slot/>
     <!-- ========== HEADER ========== -->
     <header
-      class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-4"
+      class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm pt-14"
     >
       <nav
         class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
