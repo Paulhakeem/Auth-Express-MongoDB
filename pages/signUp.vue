@@ -35,7 +35,7 @@
         <div class="pt-8 mb-4">
           <h4 class="text-center text-white font-semibold">SignUp</h4>
           <div class="flex flex-col justify-center items-center pt-6">
-            <form @submit.prevent="" method="post">
+            <form @submit.prevent="createUsers" method="post">
               <label
                 class="font-semibold text-xs text-white"
                 for="usernameField"
@@ -84,7 +84,6 @@
 
               <div class="text-center">
                 <button
-                  @click="getUsers"
                   class="h-10 px-6 w-64 bg-[#07d884] mt-8 rounded font-semibold text-sm text-blue-100"
                 >
                   SignUp
@@ -110,10 +109,18 @@
 const name = useState("name", () => "");
 const email = useState("email", () => "");
 const password = useState("password", () => "");
-const confirmPassword = useState("confirmPassword", () => "");
 
-const getUsers = async () => {
-  const data = await $fetch("/api/signUp");
-  console.log(data);
+const { createUser } = signup();
+
+const createUsers = async () => {
+  try {
+    const newUser = await createUser(name.value, email.value, password.value);
+    if(!newUser){
+      useNuxtApp().$toast.error('No user created!');
+    }
+     useNuxtApp().$toast.success('User created!');
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 </script>
