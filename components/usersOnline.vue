@@ -46,7 +46,6 @@ onMounted(async () => {
   try {
     const data = await $fetch("/api/users");
     const users = await data.res.data.users
-    console.log(users);
     if (users) {
       allUsers.value = users
     }

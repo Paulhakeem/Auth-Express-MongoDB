@@ -2,7 +2,7 @@ export default function () {
   const createUser = async (name, email, password) => {
     const res = await $fetch("/api/signUp", {
       method: "POST",
-      body: { name, email, password },
+      body: JSON.stringify({ name, email, password }),
     });
     if (res) {
       useNuxtApp().$toast.success("User Created!!");
